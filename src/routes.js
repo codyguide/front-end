@@ -44,6 +44,7 @@ const dashboardRoutes = [
     icon: Dashboard,
     component: DashboardPage,
     layout: "/admin",
+    exact: true,
   },
 
   // {
@@ -62,6 +63,7 @@ const dashboardRoutes = [
     icon: "content_paste",
     component: TableList,
     layout: "/admin",
+    exact: true,
   },
 
   {
