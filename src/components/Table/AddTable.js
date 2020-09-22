@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
-import { Cookies } from "react-cookie";
 import { addPosting } from "../../_reducers/post_reducer";
 import { withRouter } from "react-router-dom";
-
+import Button from "../../components/CustomButtons/Button.js";
 import Alert from "@material-ui/lab/Alert";
 import { getLoggedInUser } from "../../helpers/authUtils";
 
@@ -19,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddPost = (props) => {
+const AddTable = (props) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const [post, setPost] = useState({
@@ -57,7 +55,7 @@ const AddPost = (props) => {
     } else {
       console.log(post);
       dispatch(addPosting(post));
-      props.history.push("/table");
+      props.history.push("/admin/table");
     }
   };
 
@@ -105,4 +103,4 @@ const AddPost = (props) => {
   );
 };
 
-export default withRouter(AddPost);
+export default withRouter(AddTable);

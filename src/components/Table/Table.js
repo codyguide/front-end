@@ -48,7 +48,7 @@ function CustomTable(props) {
   };
 
   const addPost = (e) => {
-    props.history.push("/table/addtable");
+    props.history.push("/board/addtable");
   };
 
   return (
@@ -84,7 +84,7 @@ function CustomTable(props) {
                 {prop.map((index, key) => {
                   return (
                     <TableCell className={classes.tableCell} key={key}>
-                      <RouterLink to={`/board/EditPost/${prop[0]}`}>
+                      <RouterLink to={`/admin/table/editpost/${prop[0]}`}>
                         {index}
                       </RouterLink>
                     </TableCell>

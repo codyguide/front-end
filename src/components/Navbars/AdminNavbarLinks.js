@@ -219,9 +219,17 @@ function AdminNavbarLinks() {
                           className={classes.dropdownItem}
                           button
                           component="a"
-                          href="/login"
+                          href="/member/login"
                         >
                           Login
+                        </MenuItem>
+                        <MenuItem
+                          className={classes.dropdownItem}
+                          button
+                          component="a"
+                          href="/member/register"
+                        >
+                          Sign up
                         </MenuItem>
                       </div>
                     ) : (

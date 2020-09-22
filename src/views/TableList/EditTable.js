@@ -8,7 +8,16 @@ import FormControl from "@material-ui/core/FormControl";
 import TextInfoContent from "@mui-treasury/components/content/textInfo";
 import { useN01TextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/n01";
 import { withRouter } from "react-router-dom";
+
+import Avatar from "@material-ui/core/Avatar";
 import { Column, Row, Item } from "@mui-treasury/components/flex";
+import {
+  Info,
+  InfoTitle,
+  InfoSubtitle,
+  InfoCaption,
+} from "@mui-treasury/components/info";
+import { useChatzInfoStyles } from "@mui-treasury/styles/info/chatz";
 import { useDynamicAvatarStyles } from "@mui-treasury/styles/avatar/dynamic";
 import { useSelector } from "react-redux";
 

@@ -24,13 +24,13 @@ import { applyMiddleware, createStore } from "redux";
 import ReduxThunk from "redux-thunk";
 import promiseMiddleware from "redux-promise";
 import Reducer from "./_reducers";
-import Login from "./member/Login";
-import Register from "./member/Register";
-import Table from "./views/TableList/TableList";
-import AddTable from "./views/TableList/AddTable";
 
 // core components
 import Admin from "layouts/Admin.js";
+import Member from "layouts/Member.js";
+import Board from "layouts/Board.js";
+import DetailBoard from "layouts/DetailBoard.js";
+
 import RTL from "layouts/RTL.js";
 
 import "assets/css/material-dashboard-react.css?v=1.9.0";
@@ -47,13 +47,12 @@ ReactDOM.render(
     <Router history={hist}>
       <Switch>
         <Route path="/admin" component={Admin} />
-        <Route path="/rtl" component={RTL} />
+        <Route path="/member" component={Member} />
+        <Route path="/board" component={Board} />
+        <Route path="/admin/table" component={Board} />
+        {/* <Route path="/rtl" component={RTL} /> */}
         {/* 여기 주석처리해야 나옴 */}
-        {/* <Redirect from="/" to="/admin/dashboard" /> */}
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        {/* <Route path="/table" component={Table} exact={true} /> */}
-        {/* <Route path="/table/addtable" component={AddTable} /> */}
+        <Redirect from="/" to="/admin/dashboard" />
       </Switch>
     </Router>
   </Provider>,

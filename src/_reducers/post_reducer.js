@@ -43,7 +43,7 @@ const initialState = [
 const posts = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POSTING:
-      return { ...state, posts: posts.concat(action.post) };
+      return state.concat(action.post);
     case DELETE_POSTING:
       return state.filter((post) => post.id !== action.id);
     default:

@@ -20,7 +20,7 @@ import Container from "@material-ui/core/Container";
 function Register(props) {
   const useStyles = makeStyles((theme) => ({
     paper: {
-      marginTop: theme.spacing(8),
+      marginTop: theme.spacing(-5),
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -92,7 +92,7 @@ function Register(props) {
     // };
 
     dispatch(registerUser(userPwd, userPwd, name, email));
-    props.history.push("/login");
+    props.history.push("/member/login");
   };
 
   return (
