@@ -24,7 +24,7 @@ let ps;
 const switchRoutes = (
   <Switch>
     {detailRoutes.map((prop, key) => {
-      if (prop.layout === "/admin/table") {
+      if (prop.layout === "/admin") {
         return (
           <Route
             path={prop.layout + prop.path}

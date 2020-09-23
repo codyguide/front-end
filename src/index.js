@@ -49,7 +49,7 @@ ReactDOM.render(
         <Route path="/admin" component={Admin} />
         <Route path="/member" component={Member} />
         <Route path="/board" component={Board} />
-        <Route path="/admin/table" component={Board} />
+        <Route path="/admin/table" component={DetailBoard} />
         {/* <Route path="/rtl" component={RTL} /> */}
         {/* 여기 주석처리해야 나옴 */}
         <Redirect from="/" to="/admin/dashboard" />

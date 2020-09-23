@@ -5,8 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { addPosting } from "../../_reducers/post_reducer";
 import { withRouter } from "react-router-dom";
 import Button from "../../components/CustomButtons/Button.js";
-import Alert from "@material-ui/lab/Alert";
 import { getLoggedInUser } from "../../helpers/authUtils";
+import DropDown from "../../components/DropDown/DropDown";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,23 +50,15 @@ const AddTable = (props) => {
   };
 
   const onClickHandler = () => {
-    if (post.title == "" || post.contents == "") {
-      setAlert(true);
-    } else {
-      console.log(post);
-      dispatch(addPosting(post));
-      props.history.push("/admin/table");
-    }
+    dispatch(addPosting(post));
+    props.history.push("/admin/table");
   };
-
-  const [alert, setAlert] = useState(false);
 
   return (
     <div style={{ display: "flex" }}>
       <form className={classes.root}>
-        {alert && <Alert severity="error">모두 입력해 주세요</Alert>}
-
         <div>
+          <DropDown onChange={(value) => setPost({ ...post, header: value })} />
           <TextField
             name="title"
             label="제목"
@@ -84,8 +76,8 @@ const AddTable = (props) => {
             fullWidth
             variant="outlined"
             rows={10}
-            onChange={(e) => onChangeHandler(e)}
             value={post.contents}
+            onChange={(e) => onChangeHandler(e)}
           />
 
           <Button

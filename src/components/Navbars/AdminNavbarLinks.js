@@ -26,10 +26,11 @@ import styles from "assets/jss/material-dashboard-react/components/headerLinksSt
 
 const useStyles = makeStyles(styles);
 
-function AdminNavbarLinks() {
+function AdminNavbarLinks(props) {
   const classes = useStyles();
   const [openNotification, setOpenNotification] = React.useState(null);
   const [openProfile, setOpenProfile] = React.useState(null);
+
   const handleClickNotification = (event) => {
     if (openNotification && openNotification.contains(event.target)) {
       setOpenNotification(null);
@@ -57,7 +58,7 @@ function AdminNavbarLinks() {
   const onLogout = () => {
     const cookies = new Cookies();
     cookies.remove("user");
-    window.location = "/admin/dashboard";
+    props.history.push("/member/login");
   };
 
   return (

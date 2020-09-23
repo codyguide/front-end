@@ -10,6 +10,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import Pagination from "@material-ui/lab/Pagination";
 import Button from "../CustomButtons/Button.js";
+import DropDown from "../../components/DropDown/DropDown";
 import { withRouter } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -21,6 +22,7 @@ const useStyles = makeStyles(styles);
 function CustomTable(props) {
   const classes = useStyles();
 
+  const tableHeaderColor = "primary";
   const tableHead = ["번호", "주제", "글제목", "작성자", "등록일"];
   const [tableData, setTableData] = useState([]);
   const [allData, setAllData] = useState([]);
@@ -53,6 +55,9 @@ function CustomTable(props) {
 
   return (
     <div className={classes.tableResponsive}>
+      <div>
+        <DropDown onChange={(value) => console.log("Borad onChange", value)} />
+      </div>
       <Table className={classes.table}>
         <colgroup>
           <col style={{ width: "10%" }} />
@@ -62,7 +67,7 @@ function CustomTable(props) {
           <col style={{ width: "10%" }} />
         </colgroup>
         {tableHead !== undefined ? (
-          <TableHead className={classes["TableHeader"]}>
+          <TableHead className={classes[tableHeaderColor + "TableHeader"]}>
             <TableRow className={classes.tableHeadRow}>
               {tableHead.map((prop, key) => {
                 return (

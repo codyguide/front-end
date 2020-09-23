@@ -69,7 +69,7 @@ function Login(props) {
 
     dispatch(loginUser(userId, userPwd));
 
-    props.history.goBack(2);
+    props.history.push("/admin/dashboard");
   };
 
   return (
