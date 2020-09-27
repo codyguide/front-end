@@ -68,7 +68,6 @@ function Login(props) {
     // });
 
     dispatch(loginUser(userId, userPwd));
-
     props.history.push("/admin/dashboard");
   };
 

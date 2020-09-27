@@ -13,7 +13,10 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
     },
-    btn: { margin: theme.spacing(1) },
+  },
+  form: {
+    width: "98%", // Fix IE 11 issue.
+    // marginTop: theme.spacing(0),
   },
 }));
 
@@ -56,39 +59,43 @@ const AddTable = (props) => {
 
   return (
     <div style={{ display: "flex" }}>
-      <form className={classes.root}>
-        <div>
-          <DropDown onChange={(value) => setPost({ ...post, header: value })} />
-          <TextField
-            name="title"
-            label="제목"
-            multiline
-            fullWidth
-            variant="outlined"
-            value={post.title}
-            onChange={(e) => onChangeHandler(e)}
-          />
+      <form className={classes.form}>
+        <div className={classes.root}>
+          <div>
+            <DropDown
+              onChange={(value) => setPost({ ...post, header: value })}
+            />
+            <TextField
+              name="title"
+              label="제목"
+              multiline
+              fullWidth
+              variant="outlined"
+              value={post.title}
+              onChange={onChangeHandler}
+            />
 
-          <TextField
-            name="contents"
-            label="내용"
-            multiline
-            fullWidth
-            variant="outlined"
-            rows={10}
-            value={post.contents}
-            onChange={(e) => onChangeHandler(e)}
-          />
+            <TextField
+              name="contents"
+              label="내용"
+              multiline
+              fullWidth
+              variant="outlined"
+              rows={15}
+              value={post.contents}
+              onChange={onChangeHandler}
+            />
 
-          <Button
-            style={{ margin: "3px" }}
-            className="write-btn"
-            variant="contained"
-            color="primary"
-            onClick={() => onClickHandler()}
-          >
-            글쓰기
-          </Button>
+            <Button
+              style={{ margin: "3px" }}
+              className="write-btn"
+              variant="contained"
+              color="primary"
+              onClick={onClickHandler}
+            >
+              등록
+            </Button>
+          </div>
         </div>
       </form>
     </div>

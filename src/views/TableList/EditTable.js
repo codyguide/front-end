@@ -1,79 +1,65 @@
-import React, { useEffect } from "react";
-import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
-import CardContent from "@material-ui/core/CardContent";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import FormControl from "@material-ui/core/FormControl";
-import TextInfoContent from "@mui-treasury/components/content/textInfo";
-import { useN01TextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/n01";
-import { withRouter } from "react-router-dom";
+import React from "react";
 
-import Avatar from "@material-ui/core/Avatar";
-import { Column, Row, Item } from "@mui-treasury/components/flex";
-import {
-  Info,
-  InfoTitle,
-  InfoSubtitle,
-  InfoCaption,
-} from "@mui-treasury/components/info";
-import { useChatzInfoStyles } from "@mui-treasury/styles/info/chatz";
-import { useDynamicAvatarStyles } from "@mui-treasury/styles/avatar/dynamic";
-import { useSelector } from "react-redux";
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
+// core components
+import GridItem from "components/Grid/GridItem.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import EditTable from "components/Table/EditTable.js";
+import Card from "components/Card/Card.js";
+import CardHeader from "components/Card/CardHeader.js";
+import CardBody from "components/Card/CardBody.js";
 
-const EditPost = (props) => {
-  let postId = props.match.params.id;
-  const avatarStyles2 = useDynamicAvatarStyles({ size: 72 });
-  const post = useSelector(
-    (state) => state.posts.filter((post) => post.id == postId)[0]
-  );
-  const text = post.contents.split("\n").map((i, key) => {
-    return <div key={key}>{i}</div>;
-  });
+const styles = {
+  cardCategoryWhite: {
+    "&,& a,& a:hover,& a:focus": {
+      color: "rgba(255,255,255,.62)",
+      margin: "0",
+      fontSize: "14px",
+      marginTop: "0",
+      marginBottom: "0",
+    },
+    "& a,& a:hover,& a:focus": {
+      color: "#FFFFFF",
+    },
+  },
+  cardTitleWhite: {
+    color: "#FFFFFF",
+    marginTop: "0px",
+    minHeight: "auto",
+    fontWeight: "300",
+    fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+    marginBottom: "3px",
+    textDecoration: "none",
+    "& small": {
+      color: "#777",
+      fontSize: "65%",
+      fontWeight: "400",
+      lineHeight: "1",
+    },
+  },
+};
+
+const useStyles = makeStyles(styles);
+
+export default function TableList(props) {
+  const classes = useStyles();
 
   return (
     <div>
-      <Paper>
-        <CardContent>
-          <TextInfoContent
-            useStyles={useN01TextInfoContentStyles}
-            overline={post.regiDate}
-            heading={`[${post.header}] ${post.title}`}
-            body={text}
-          />
-        </CardContent>
-        <Column gap={2}>
-          <Row mt={2} alignItems={"center"}></Row>
-          <Row mt={2} alignItems={"center"}></Row>
-          <Row mt={2} alignItems={"center"}>
-            <FormControl fullWidth variant="outlined">
-              <OutlinedInput
-                id="outlined-adornment-amount"
-                endAdornment={
-                  <InputAdornment position="end">
-                    <Button variant="contained" color="primary">
-                      Reply
-                    </Button>
-                  </InputAdornment>
-                }
-                placeholder="댓글을 입력하세요.."
-              />
-            </FormControl>
-          </Row>
-          <Row mt={2} alignItems={"center"}>
-            <Button
-              className="write-btn"
-              variant="outlined"
-              color="primary"
-              onClick={() => props.history.goBack()}
-            >
-              뒤로가기
-            </Button>
-          </Row>
-        </Column>
-      </Paper>
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={12}>
+          <Card>
+            <CardHeader color="primary">
+              <h4 className={classes.cardTitleWhite}>코디 커뮤니티</h4>
+              <p className={classes.cardCategoryWhite}>coordi board</p>
+            </CardHeader>
+            <CardBody>
+              <EditTable />
+            </CardBody>
+          </Card>
+        </GridItem>
+      </GridContainer>
     </div>
   );
-};
-
-export default withRouter(EditPost);
+}

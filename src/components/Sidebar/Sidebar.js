@@ -37,7 +37,8 @@ export default function Sidebar(props) {
           listItemClasses = classNames({
             [" " + classes[color]]: true,
           });
-        } else {
+        } else if (prop.invisible) return null;
+        else {
           listItemClasses = classNames({
             [" " + classes[color]]: activeRoute(prop.layout + prop.path),
           });

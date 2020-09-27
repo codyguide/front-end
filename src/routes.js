@@ -29,12 +29,14 @@ import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import TableList from "views/TableList/TableList.js";
 import Typography from "views/Typography/Typography.js";
-import Icons from "views/Icons/Icons.js";
-import Maps from "views/Maps/Maps.js";
-import NotificationsPage from "views/Notifications/Notifications.js";
+import AddPost from "views/TableList/AddPost.js";
+import EditTable from "views/TableList/EditTable.js";
 import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
+
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.js";
+import LoginPage from "member/Login.js";
+import RegisterPage from "member/Register.js";
 
 const dashboardRoutes = [
   {
@@ -45,6 +47,25 @@ const dashboardRoutes = [
     component: DashboardPage,
     layout: "/admin",
     exact: true,
+  },
+
+  {
+    path: "/login",
+    rtlName: "لوحة القيادة",
+    icon: Dashboard,
+    component: LoginPage,
+    layout: "/admin",
+    exact: true,
+    invisible: true,
+  },
+
+  {
+    path: "/register",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: Person,
+    component: RegisterPage,
+    layout: "/admin",
+    invisible: true,
   },
 
   // {
@@ -64,6 +85,25 @@ const dashboardRoutes = [
     component: TableList,
     layout: "/admin",
     exact: true,
+  },
+
+  {
+    path: "/addtable",
+    name: "게시판",
+    rtlName: "لوحة القيادة",
+    component: AddPost,
+    layout: "/admin",
+    invisible: true,
+  },
+
+  {
+    path: "/edittable/:id",
+    name: "게시판",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: Person,
+    component: EditTable,
+    layout: "/admin",
+    invisible: true,
   },
 
   {

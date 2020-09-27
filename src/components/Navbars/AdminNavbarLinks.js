@@ -58,7 +58,7 @@ function AdminNavbarLinks(props) {
   const onLogout = () => {
     const cookies = new Cookies();
     cookies.remove("user");
-    props.history.push("/member/login");
+    props.history.push("/admin/login");
   };
 
   return (
@@ -220,7 +220,7 @@ function AdminNavbarLinks(props) {
                           className={classes.dropdownItem}
                           button
                           component="a"
-                          href="/member/login"
+                          href="/admin/login"
                         >
                           Login
                         </MenuItem>
@@ -228,7 +228,7 @@ function AdminNavbarLinks(props) {
                           className={classes.dropdownItem}
                           button
                           component="a"
-                          href="/member/register"
+                          href="/admin/register"
                         >
                           Sign up
                         </MenuItem>

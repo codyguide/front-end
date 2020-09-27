@@ -1,7 +1,5 @@
 import { ADD_POSTING, EDIT_POSTING, DELETE_POSTING } from "../actions/types";
 
-let nextId = 2;
-
 export const addPosting = (post) => ({
   type: ADD_POSTING,
   post,
