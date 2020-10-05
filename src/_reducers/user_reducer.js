@@ -1,11 +1,11 @@
 import { Cookies } from "react-cookie";
 import { LOGIN_USER, REGISTER_USER } from "../actions/types";
 
-import axios from "axios";
+// import axios from "axios";
 
 // export function loginUser(dataToSubmit) {
 //   const request = axios
-//     .post("/api/auth/login", dataToSubmit)
+//     .post("http://localhost:8000/member/sign-up", dataToSubmit)
 //     .then((response) => response.data);
 
 //   return {
@@ -16,8 +16,14 @@ import axios from "axios";
 
 // export function registerUser(dataToSubmit) {
 //   const request = axios
-//     .post("/api/users/register", dataToSubmit)
-//     .then((response) => response.data);
+//     .post("http://localhost:8000/member/sign-up", dataToSubmit)
+//     .then((response) => {
+//       console.log("데이터 등록 완료", response.data);
+//       alert("등록완료");
+//     })
+//     .catch((response) => {
+//       console.error(response);
+//     });
 
 //   return {
 //     type: REGISTER_USER,
@@ -27,13 +33,13 @@ import axios from "axios";
 
 export const registerUser = (member) => ({
   type: REGISTER_USER,
-  member: member,
+  member,
 });
 
 export const loginUser = (memberId, memberPwd) => ({
   type: LOGIN_USER,
-  memberId: memberId,
-  memberPwd: memberPwd,
+  memberId,
+  memberPwd,
 });
 
 const initialState = {
@@ -69,11 +75,16 @@ const initialState = {
 //   }
 // }
 
-export default function (state = initialState, action) {
+const member = (state = initialState, action) => {
+  const setSession = (user) => {
+    const cookies = new Cookies();
+    if (user) cookies.set("user", JSON.stringify(user), { path: "/admin" });
+    else cookies.remove("user");
+  };
   switch (action.type) {
     case REGISTER_USER:
       return { ...state, members: state.members.concat(action.member) };
-    case LOGIN_USER:
+    case LOGIN_USER: {
       const loginMember = state.members.filter(
         (user) =>
           user.memberId == action.memberId && user.memberPwd == action.memberPwd
@@ -89,13 +100,9 @@ export default function (state = initialState, action) {
         cookies.remove("user");
         return state;
       }
+    }
     default:
       return state;
   }
-}
-
-const setSession = (user) => {
-  const cookies = new Cookies();
-  if (user) cookies.set("user", JSON.stringify(user), { path: "/" });
-  else cookies.remove("user");
 };
+export default member;

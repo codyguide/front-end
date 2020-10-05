@@ -26,26 +26,26 @@ function CustomTable(props) {
   const tableHead = ["번호", "주제", "글제목", "작성자", "등록일"];
   const [tableData, setTableData] = useState([]);
   const [allData, setAllData] = useState([]);
-  const globalPosts = useSelector((state) => state.posts);
+  const allTable = useSelector((state) => state.posts);
 
   useEffect(() => {
-    const newData = [];
-    for (let i = 0; i < globalPosts.length; i++) {
-      newData.push([
-        globalPosts[i].id,
-        globalPosts[i].header,
-        globalPosts[i].title,
-        globalPosts[i].writer,
-        globalPosts[i].regiDate,
+    const newTable = [];
+    for (let i = 0; i < allTable.length; i++) {
+      newTable.push([
+        allTable[i].id,
+        allTable[i].header,
+        allTable[i].title,
+        allTable[i].writer,
+        allTable[i].regiDate,
       ]);
     }
-    setAllData(newData);
-    setTableData(newData.slice(0, 10));
-  }, [globalPosts]);
+    setAllData(newTable);
+    setTableData(newTable.slice(0, 10));
+  }, [allTable]);
 
   const handlePage = (event, value) => {
     const startNum = (value - 1) * 10;
-    const endNum = value * 10 - 1;
+    const endNum = value * 10;
     setTableData(allData.slice(startNum, endNum));
   };
 
@@ -56,7 +56,7 @@ function CustomTable(props) {
   return (
     <div className={classes.tableResponsive}>
       <div>
-        <DropDown onChange={(value) => console.log("Borad onChange", value)} />
+        <DropDown onChange={(value) => value} />
       </div>
       <Table className={classes.table}>
         <colgroup>
@@ -112,7 +112,7 @@ function CustomTable(props) {
       </div>
       <div className={classes.root}>
         <Pagination
-          count={parseInt(globalPosts.length / 10) + 1}
+          count={parseInt(allTable.length / 11) + 1}
           shape="rounded"
           onChange={handlePage}
         />

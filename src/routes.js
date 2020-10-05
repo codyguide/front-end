@@ -32,6 +32,9 @@ import Typography from "views/Typography/Typography.js";
 import AddPost from "views/TableList/AddPost.js";
 import EditTable from "views/TableList/EditTable.js";
 import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
+import Gallery from "views/CoordiGallery/Gallery.js";
+// import Gallery from "components/CoordiGallery/Gallery.js";
+import AddGallery from "views/CoordiGallery/AddGallery.js";
 
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.js";
@@ -102,6 +105,26 @@ const dashboardRoutes = [
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
     component: EditTable,
+    layout: "/admin",
+    invisible: true,
+  },
+
+  {
+    path: "/gallery",
+    name: "코디 갤러리",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: Person,
+    component: Gallery,
+    layout: "/admin",
+    // invisible: true,
+  },
+
+  {
+    path: "/addgallery",
+    name: "코디 갤러리",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: Person,
+    component: AddGallery,
     layout: "/admin",
     invisible: true,
   },

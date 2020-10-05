@@ -53,6 +53,10 @@ function AdminNavbarLinks(props) {
     setOpenProfile(null);
   };
 
+  const onProfile = () => {
+    props.history.push("/admin/user");
+  };
+
   const loginUsermember = getLoggedInUser();
 
   const onLogout = () => {
@@ -238,8 +242,9 @@ function AdminNavbarLinks(props) {
                         <p align="center">{loginUsermember.name}님</p>
 
                         <MenuItem
-                          onClick={handleCloseProfile}
+                          // onClick={handleCloseProfile}
                           className={classes.dropdownItem}
+                          onClick={onProfile}
                         >
                           Profile
                         </MenuItem>
