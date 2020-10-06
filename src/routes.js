@@ -35,6 +35,7 @@ import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 import Gallery from "views/CoordiGallery/Gallery.js";
 // import Gallery from "components/CoordiGallery/Gallery.js";
 import AddGallery from "views/CoordiGallery/AddGallery.js";
+import GalleryDetail from "views/CoordiGallery/GalleryDetail.js";
 
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.js";
@@ -123,8 +124,16 @@ const dashboardRoutes = [
     path: "/addgallery",
     name: "코디 갤러리",
     rtlName: "ملف تعريفي للمستخدم",
-    icon: Person,
     component: AddGallery,
+    layout: "/admin",
+    invisible: true,
+  },
+
+  {
+    path: "/gallerydetail/:id",
+    name: "코디 갤러리",
+    rtlName: "ملف تعريفي للمستخدم",
+    component: GalleryDetail,
     layout: "/admin",
     invisible: true,
   },

@@ -19,6 +19,8 @@ import { withRouter } from "react-router-dom";
 import Pagination from "@material-ui/lab/Pagination";
 import Button from "../CustomButtons/Button.js";
 import { Grid } from "@material-ui/core";
+import { Link as RouterLink } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
@@ -71,6 +73,7 @@ function Gallery(props) {
     const newGallery = [];
     for (let i = 0; i < allGallery.length; i++) {
       newGallery.push([
+        allGallery[i].id,
         allGallery[i].regiDate,
         allGallery[i].title,
         allGallery[i].writer,
@@ -80,7 +83,7 @@ function Gallery(props) {
       ]);
     }
     setAllData(newGallery);
-    setGalleryData(newGallery.slice(0, 10));
+    setGalleryData(newGallery.slice(0, 12));
   }, [allGallery]);
 
   const addGallery = () => {
@@ -92,55 +95,56 @@ function Gallery(props) {
   };
 
   const handlePage = (event, value) => {
-    const startNum = (value - 1) * 10;
-    const endNum = value * 10;
+    const startNum = (value - 1) * 12;
+    const endNum = value * 12;
     setGalleryData(allData.slice(startNum, endNum));
   };
 
   return (
     <div>
       <Grid container spacing={4} className={classes.gridContainer}>
-        <Grid item xs={12} sm={6} md={3}>
-          {galleryData.map((prop, key) => {
-            return (
+        {galleryData.map((prop, key) => {
+          return (
+            <Grid item xs={12} sm={6} md={3}>
               <Card className={classes.root} key={key}>
                 <CardContent key={key}>
-                  {prop.map((index, key) => {
+                  <RouterLink to={`/admin/gallerydetail/${prop[0]}`}>
+                    {prop.map((index, key) => {
                     return (
-                      <div>
-                        <Typography
-                          className={classes.title}
-                          color="textSecondary"
-                          gutterBottom
-                        >
+                        <div>
+                          <Typography
+                            key={key}
+                            className={classes.title}
+                            color="textSecondary"
+                            gutterBottom
+                          >
+                            {index}
+                          </Typography>
+                        {/* <Typography variant="h5" component="h2">
                           {index}
-                        </Typography>
-                        <Typography variant="h5" component="h2">
-                          be{bull}nev{bull}o{bull}lent
-                        </Typography>
-                        <Typography
+                        </Typography> */}
+                        {/* <Typography
                           className={classes.pos}
                           color="textSecondary"
                         >
-                          adjective
-                        </Typography>
-                        <CardMedia
+                          {index}
+                        </Typography> */}
+                        {/* <CardMedia
                           // className={classes.media}
                           image="/picture.jpg"
                           title="Paella dish"
-                        ></CardMedia>
-                        <Typography
+                        ></CardMedia> */}
+                        {/* <Typography
                           className={classes.media}
                           variant="body2"
                           component="p"
                         >
-                          well meaning and kindly.
                           <br />
-                          {'"a benevolent smile"'}
-                        </Typography>
+                        </Typography> */}
                       </div>
                     );
                   })}
+                  </RouterLink>
                 </CardContent>
                 <CardActions disableSpacing>
                   <IconButton aria-label="add to favorites">
@@ -170,15 +174,15 @@ function Gallery(props) {
                   </CardContent>
                 </Collapse>
               </Card>
-            );
-          })}
-        </Grid>
+            </Grid>
+          );
+        })}
       </Grid>
       <div style={{ float: "right" }}>
         <Button
           variant="contained"
           color="primary"
-          className="write-btn"
+          className="write-btn" 
           onClick={addGallery}
         >
           글쓰기
@@ -186,7 +190,7 @@ function Gallery(props) {
       </div>
       <div className={classes.root}>
         <Pagination
-          // count={parseInt(allTable.length / 11) + 1}
+          count={parseInt(allGallery.length / 13) + 1}
           shape="rounded"
           onChange={handlePage}
         />
