@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useReducer } from "react";
+import "./_reducers/latlon";
 import {
   GoogleMap,
   useLoadScript,
@@ -117,6 +118,19 @@ export default function Mycomonent() {
 
 //
 //
+
+// function reducer(state, action) {
+//   switch (action.type) {
+//     case "INCREMENT":
+//       return state + 1;
+//     case "DECREMENT":
+//       return state - 1;
+//     default:
+//       return state;
+//   }
+// }
+// const [number, dispatch] = useReducer(reducer, 0);
+// dispatch({ type: "INCREMENT" });
 
 function Locate({ panTo }) {
   return (

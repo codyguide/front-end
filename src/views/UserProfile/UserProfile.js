@@ -21,7 +21,11 @@ const styles = {
     margin: "0",
     fontSize: "14px",
     marginTop: "0",
+<<<<<<< HEAD
     marginBottom: "0"
+=======
+    marginBottom: "0",
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
   },
   cardTitleWhite: {
     color: "#FFFFFF",
@@ -30,8 +34,13 @@ const styles = {
     fontWeight: "300",
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
     marginBottom: "3px",
+<<<<<<< HEAD
     textDecoration: "none"
   }
+=======
+    textDecoration: "none",
+  },
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
 };
 
 const useStyles = makeStyles(styles);
@@ -49,8 +58,13 @@ export default function UserProfile() {
             </CardHeader>
             <CardBody>
               <GridContainer>
+<<<<<<< HEAD
                 <GridItem xs={12} sm={12} md={5}>
                   <CustomInput
+=======
+                {/* <GridItem xs={12} sm={12} md={5}>
+                <CustomInput
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
                     labelText="Company (disabled)"
                     id="company-disabled"
                     formControlProps={{
@@ -60,22 +74,39 @@ export default function UserProfile() {
                       disabled: true
                     }}
                   />
+<<<<<<< HEAD
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
+=======
+                </GridItem> */}
+                <GridItem xs={12} sm={12} md={6}>
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
                   <CustomInput
                     labelText="Username"
                     id="username"
                     formControlProps={{
+<<<<<<< HEAD
                       fullWidth: true
                     }}
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
+=======
+                      fullWidth: true,
+                    }}
+                  />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={6}>
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
                   <CustomInput
                     labelText="Email address"
                     id="email-address"
                     formControlProps={{
+<<<<<<< HEAD
                       fullWidth: true
+=======
+                      fullWidth: true,
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
                     }}
                   />
                 </GridItem>
@@ -86,7 +117,11 @@ export default function UserProfile() {
                     labelText="First Name"
                     id="first-name"
                     formControlProps={{
+<<<<<<< HEAD
                       fullWidth: true
+=======
+                      fullWidth: true,
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
                     }}
                   />
                 </GridItem>
@@ -95,7 +130,11 @@ export default function UserProfile() {
                     labelText="Last Name"
                     id="last-name"
                     formControlProps={{
+<<<<<<< HEAD
                       fullWidth: true
+=======
+                      fullWidth: true,
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
                     }}
                   />
                 </GridItem>
@@ -106,7 +145,11 @@ export default function UserProfile() {
                     labelText="City"
                     id="city"
                     formControlProps={{
+<<<<<<< HEAD
                       fullWidth: true
+=======
+                      fullWidth: true,
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
                     }}
                   />
                 </GridItem>
@@ -115,7 +158,11 @@ export default function UserProfile() {
                     labelText="Country"
                     id="country"
                     formControlProps={{
+<<<<<<< HEAD
                       fullWidth: true
+=======
+                      fullWidth: true,
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
                     }}
                   />
                 </GridItem>
@@ -124,7 +171,11 @@ export default function UserProfile() {
                     labelText="Postal Code"
                     id="postal-code"
                     formControlProps={{
+<<<<<<< HEAD
                       fullWidth: true
+=======
+                      fullWidth: true,
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
                     }}
                   />
                 </GridItem>
@@ -136,11 +187,19 @@ export default function UserProfile() {
                     labelText="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
                     id="about-me"
                     formControlProps={{
+<<<<<<< HEAD
                       fullWidth: true
                     }}
                     inputProps={{
                       multiline: true,
                       rows: 5
+=======
+                      fullWidth: true,
+                    }}
+                    inputProps={{
+                      multiline: true,
+                      rows: 5,
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
                     }}
                   />
                 </GridItem>
@@ -154,7 +213,11 @@ export default function UserProfile() {
         <GridItem xs={12} sm={12} md={4}>
           <Card profile>
             <CardAvatar profile>
+<<<<<<< HEAD
               <a href="#pablo" onClick={e => e.preventDefault()}>
+=======
+              <a href="#pablo" onClick={(e) => e.preventDefault()}>
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
                 <img src={avatar} alt="..." />
               </a>
             </CardAvatar>

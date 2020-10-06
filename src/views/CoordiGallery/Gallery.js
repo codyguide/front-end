@@ -5,14 +5,19 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Table from "components/Table/Table.js";
+import Gallery from "components/CoordiGallery/Gallery.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
+import { Grid } from "@material-ui/core";
 
 // import Pagination from "@material-ui/lab/Pagination";
 
 const styles = {
+  gridContainer: {
+    paddingLeft: "20px",
+    paddingRight: "20px",
+  },
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
       color: "rgba(255,255,255,.62)",
@@ -53,15 +58,16 @@ export default function TableList(props) {
         <GridItem xs={12} sm={12} md={12}>
           <Card>
             <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>코디 커뮤니티</h4>
-<<<<<<< HEAD
-              <p className={classes.cardCategoryWhite}>coordi board</p>
-=======
-              <p className={classes.cardCategoryWhite}>coordi community</p>
->>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
+              <h4 className={classes.cardTitleWhite}>코디 갤러리</h4>
+              <p className={classes.cardCategoryWhite}>coordi gallery</p>
             </CardHeader>
             <CardBody>
-              <Table />
+              {/* <Grid container spacing={4} className={classes.gridContainer}> */}
+              {/* <Grid item xs={12} sm={6} md={3}> */}
+              <Gallery />
+
+              {/* </Grid> */}
+              {/* </Grid> */}
             </CardBody>
           </Card>
         </GridItem>

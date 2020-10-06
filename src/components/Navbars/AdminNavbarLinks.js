@@ -53,6 +53,13 @@ function AdminNavbarLinks(props) {
     setOpenProfile(null);
   };
 
+<<<<<<< HEAD
+=======
+  const onProfile = () => {
+    props.history.push("/admin/user");
+  };
+
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
   const loginUsermember = getLoggedInUser();
 
   const onLogout = () => {
@@ -238,8 +245,14 @@ function AdminNavbarLinks(props) {
                         <p align="center">{loginUsermember.name}님</p>
 
                         <MenuItem
+<<<<<<< HEAD
                           onClick={handleCloseProfile}
                           className={classes.dropdownItem}
+=======
+                          // onClick={handleCloseProfile}
+                          className={classes.dropdownItem}
+                          onClick={onProfile}
+>>>>>>> 8e7e16d4fc75d61415269dda68efc4dd4d8f6455
                         >
                           Profile
                         </MenuItem>
