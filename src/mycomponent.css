@@ -24,7 +24,7 @@ code {
 }
 
 .locate {
-  position: absolute;
+  /* position: absolute; */
   top: 1em;
   right: 50%;
   background: none;

@@ -113,11 +113,6 @@ export default function Mycomonent() {
   );
 }
 
-//
-
-//
-//
-
 function Locate({ panTo }) {
   return (
     <button

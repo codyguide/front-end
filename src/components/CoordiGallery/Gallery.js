@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,7 +19,6 @@ import Pagination from "@material-ui/lab/Pagination";
 import Button from "../CustomButtons/Button.js";
 import { Grid } from "@material-ui/core";
 import { Link as RouterLink } from "react-router-dom";
-
 
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
@@ -105,12 +103,14 @@ function Gallery(props) {
       <Grid container spacing={4} className={classes.gridContainer}>
         {galleryData.map((prop, key) => {
           return (
+            // eslint-disable-next-line react/jsx-key
             <Grid item xs={12} sm={6} md={3}>
               <Card className={classes.root} key={key}>
                 <CardContent key={key}>
                   <RouterLink to={`/admin/gallerydetail/${prop[0]}`}>
                     {prop.map((index, key) => {
-                    return (
+                      return (
+                        // eslint-disable-next-line react/jsx-key
                         <div>
                           <Typography
                             key={key}
@@ -120,30 +120,30 @@ function Gallery(props) {
                           >
                             {index}
                           </Typography>
-                        {/* <Typography variant="h5" component="h2">
+                          {/* <Typography variant="h5" component="h2">
                           {index}
                         </Typography> */}
-                        {/* <Typography
+                          {/* <Typography
                           className={classes.pos}
                           color="textSecondary"
                         >
                           {index}
                         </Typography> */}
-                        {/* <CardMedia
+                          {/* <CardMedia
                           // className={classes.media}
                           image="/picture.jpg"
                           title="Paella dish"
                         ></CardMedia> */}
-                        {/* <Typography
+                          {/* <Typography
                           className={classes.media}
                           variant="body2"
                           component="p"
                         >
                           <br />
                         </Typography> */}
-                      </div>
-                    );
-                  })}
+                        </div>
+                      );
+                    })}
                   </RouterLink>
                 </CardContent>
                 <CardActions disableSpacing>
@@ -182,7 +182,7 @@ function Gallery(props) {
         <Button
           variant="contained"
           color="primary"
-          className="write-btn" 
+          className="write-btn"
           onClick={addGallery}
         >
           글쓰기
